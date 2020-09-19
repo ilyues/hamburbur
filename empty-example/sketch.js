@@ -1,5 +1,5 @@
 var ham, b, u, r, ger;
-var base_x = 80;
+var base_x = 700;
 var base_y = 800;
 var burgerStack, burgerText, currText, currBurger;
 var hamButton, bButton, uButton, rButton, gerButton;
@@ -45,7 +45,7 @@ function setup() {
   rButton.position(1400, 460).mousePressed(function(){ pushOn(3); });
   gerButton.position(1400, 580).mousePressed(function(){ pushOn(4); }); 
   removeButton.position(1400, 700).mousePressed(popOff); 
-  canvas = createCanvas(1000, 1000);
+  canvas = createCanvas(2000, 1000);
   
   // canvas.style('width', '100%');
   // canvas.style('height', $('#canvas').width() + 'px');
@@ -89,7 +89,8 @@ function visualiseBurger() {
   textSize(30);
   fill('#482D27');
   textFont('Capriola');
-  text(burgerName, 100, 900);
+  textAlign(CENTER);
+  text(burgerName, 900, 900);
 }
 
 function generateText() {
