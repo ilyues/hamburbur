@@ -36,36 +36,38 @@ function setup() {
 
 
   makeButtons();
-  canvas = createCanvas(windowWidth, 1000);
+  canvas = createCanvas(windowWidth, windowHeight);
   background(252, 249, 240);
 
 }
 
 function makeButtons() {
-  hamButton.position(0.72 * window.innerWidth, 175).mousePressed(function(){ pushOn(0);});
-  bButton.position(0.79 * window.innerWidth, 175).mousePressed(function(){ pushOn(1);});
-  uButton.position(0.72 * window.innerWidth, 280).mousePressed(function(){ pushOn(2);});
-  rButton.position(0.79 * window.innerWidth, 280).mousePressed(function(){ pushOn(3); });
-  gerButton.position(0.72 * window.innerWidth, 385).mousePressed(function(){ pushOn(4); }); 
-  popButton.position(0.725 * window.innerWidth, 650).mousePressed(popOff); 
+  hamButton.position(0.72 * window.innerWidth, 0.175 * window.innerHeight).mousePressed(function(){ pushOn(0);}).size(windowWidth * 0.055, windowWidth * 0.055);
+  bButton.position(0.78 * window.innerWidth, 0.175 * window.innerHeight).mousePressed(function(){ pushOn(1);}).size(windowWidth * 0.055, windowWidth * 0.055);
+  uButton.position(0.72 * window.innerWidth, 0.280 * window.innerHeight).mousePressed(function(){ pushOn(2);}).size(windowWidth * 0.055, windowWidth * 0.055);
+  rButton.position(0.78 * window.innerWidth, 0.280 * window.innerHeight).mousePressed(function(){ pushOn(3); }).size(windowWidth * 0.055, windowWidth * 0.055);
+  gerButton.position(0.72 * window.innerWidth, 0.385 * window.innerHeight).mousePressed(function(){ pushOn(4); }).size(windowWidth * 0.055, windowWidth * 0.055);
+  popButton.position(0.725 * window.innerWidth, 0.650 * window.innerHeight).mousePressed(popOff).size(windowWidth * 0.11, windowWidth * 0.11); 
+
+
 }
 
 function draw() {
   // right text :(
-  textSize(70);
+  textSize(window.innerHeight * 0.07);
   fill('#E5320B');
   textFont('Modak');
   textAlign(CENTER);
-  text('PUSH', 0.78 * window.innerWidth, 100); 
-  text('POP', 0.78 * window.innerWidth, 580);
-  textSize(20);
+  text('PUSH', 0.78 * window.innerWidth, 0.1 * window.innerHeight); 
+  text('POP', 0.78 * window.innerWidth, 0.58 * window.innerHeight);
+  textSize(window.innerHeight * 0.02);
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
-  text('an ingredient onto \nyour burger stack...', 0.78 * window.innerWidth, 130);
-  text('the last ingredient\n off the stack!', 0.78 * window.innerWidth, 610);
+  text('an ingredient onto \nyour burger stack...', 0.78 * window.innerWidth, window.innerHeight * 0.13);
+  text('the last ingredient\n off the stack!', 0.78 * window.innerWidth, window.innerHeight * 0.61);
   textAlign(RIGHT);
-  text('...or', 0.84 * window.innerWidth, 460);
+  text('...or', 0.84 * window.innerWidth, 0.46 * window.innerHeight);
   visualiseBurger()
 }
 
@@ -88,7 +90,7 @@ function pushOn(i) {
 } 
 
 function visualiseBurger() {
-  base_y = 750;
+  base_y = 0.75 * window.innerHeight;
   for (var j = 0; currBurger[j] != undefined; j++) {
     image(currBurger[j], base_x, base_y);
     if ((currBurger[j] === ham || 
@@ -107,7 +109,7 @@ function visualiseBurger() {
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
-  text(burgerName, 0.50 * window.innerWidth, 925);
+  text(burgerName, 0.50 * window.innerWidth, 0.925 * window.innerHeight);
 }
 
 
