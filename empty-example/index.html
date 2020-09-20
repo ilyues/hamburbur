@@ -23,6 +23,21 @@
       margin: 0 auto;
     }
 
+    h2 { 
+      font-weight: 900; 
+      font-size: 10pt;
+      color: #3C3EA7;
+    } 
+  
+    q:before,q:after{content:''}
+
+    q {
+      text-decoration: none;
+      font-size: 10pt;
+      color: #E5320B;
+      line-height: 60%;
+    }
+    a { color: #787CF9; }
     .title {
       font-family: 'Modak', cursive;
       font-size: 150px;
@@ -33,12 +48,13 @@
       
     }
     .sidenav {
-      font-family: 'Capriola', sans-serif;
+      font-family: 'Oxygen Mono', monospace;
+      color: #330214;
       font-size: 20px;
 
       text-align:left;
       height: 100%; /* Full-height: remove this if you want "auto" height */
-      width: 500px; /* Set the width of the sidebar */
+      width: 400px; /* Set the width of the sidebar */
       position: fixed; /* Fixed Sidebar (stay in place on scroll) */
       z-index: 1; /* Stay on top */
       top: 20; /* Stay at the top */
@@ -46,7 +62,35 @@
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 40px;
       padding-left: 50px;
+      line-height: 1.2
+      ;
     } 
+
+    .tab {
+      padding:20px;
+      height:180px;
+      width:150px;
+      background:
+        linear-gradient(-45deg, #E4E8F9 5px, transparent 0) 0 5px,
+        linear-gradient(45deg,#E4E8F9 5px, #FCF9F0 0) 0 5px;
+      background-color:#E4E8F9;
+      background-position: left top;
+      background-repeat: repeat-x;
+      background-size: 10px 10px;
+      right: 20px;
+      bottom: 0;
+      position: fixed;
+      text-align: center;
+      
+      font-family: 'Oxygen Mono', monospace;
+      font-weight:lighter;
+      color: #4B50DE;
+      font-size: 9pt;
+      
+    }
+
+    
+}
 
     .canvas {
       position: absolute;
@@ -55,7 +99,7 @@
 
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Modak&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Modak&family=Oxygen+Mono&display=swap" rel="stylesheet">
   <script src="../p5.js"></script>
   <!--<script src="../addons/p5.sound.min.js"></script>--->
 </head>
@@ -64,7 +108,20 @@
   <div class="sidenav"><div class="title">HAM
       BUR
       BUR!</div>
-      wait so
+      A burger maker to help you visualise the stack! 
+      <p><q>The stack is an abstract data type which behaves like... well... like a stack. 
+      We can insert ('push') elements into the stack and remove ('pop') them. Only the top element
+      can be accessed — it's a last-in-first-out data structure!</q></p>
+      Make your dream hamburger (or your dream brrrbhamgerger... ger... r...)
+  </div>
+  <div class="tab"><h2>ENJOY YOUR BRRGER!</h2>
+    <br>Served to you by
+    <br><a href="https://isabel.li/">isabel 玥 li</a>
+    <br>
+    <br>-------------------
+    <br>
+    <br>ig <a href="https://instagram.com/ilyues">@ilyues</a>
+    <br>twitter <a href="https://twitter.com/ilyues">@ilyues</a>
   </div>
   <div class="canvas">
     <script src="sketch.js"></script>
@@ -75,7 +132,7 @@
     </div> -->
     
 
-  <div id="p5_loading" class="loadingclass">this could be some sweet graphics loading lots of bits.</div>
+  <div id="p5_loading" class="loadingclass">blease wait</div>
 </body>
 
 </html>

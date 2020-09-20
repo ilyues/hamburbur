@@ -44,7 +44,7 @@ function setup() {
   uButton.position(1300, 280).mousePressed(function(){ pushOn(2);});
   rButton.position(1420, 280).mousePressed(function(){ pushOn(3); });
   gerButton.position(1300, 385).mousePressed(function(){ pushOn(4); }); 
-  popButton.position(1310, 650).mousePressed(popOff); 
+  popButton.position(1305, 650).mousePressed(popOff); 
   canvas = createCanvas(2000, 1000);
   background(252, 249, 240);
 
@@ -65,11 +65,11 @@ function draw() {
   textSize(20);
   fill('#482D27');
   textFont('Capriola');
-  textAlign(LEFT);
-  text('an ingredient onto \nyour burger stack...', 1310, 130);
-  text('your last ingredient\n off the stack!', 1310, 610);
+  textAlign(CENTER);
+  text('an ingredient onto \nyour burger stack...', 1400, 130);
+  text('the last ingredient\n off the stack!', 1400, 610);
   textAlign(RIGHT);
-  text('...or', 1500, 500);
+  text('...or', 1500, 460);
   visualiseBurger()
 }
 
@@ -77,7 +77,6 @@ function popOff() {
   clear()
   currBurger.pop();
   currText.shift();
-  visualiseBurger()
 
 }
 
@@ -85,18 +84,17 @@ function pushOn(i) {
   clear()
   currBurger.push(burgerStack[i]);
   currText.unshift(burgerText[i]);
-  visualiseBurger()
 } 
 
 function visualiseBurger() {
   base_y = 650;
   for (var j = 0; currBurger[j] != undefined; j++) {
     image(currBurger[j], base_x, base_y);
-    if (j < 5 && (currBurger[j] === ham || 
+    if ((currBurger[j] === ham || 
       currBurger[j] === b)) {
-      base_y -= 80;
+      base_y -= 90;
     } else {
-      base_y -= 40;
+      base_y -= 50;
     }
   }
   var burgerName = '';
