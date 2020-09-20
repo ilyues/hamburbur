@@ -13,20 +13,15 @@ let buttonImages = [
 
 
 function preload() {
-  //ham = loadImage('/assets/ham.png');
-  //b = loadImage('assets/')
   hamButton = createImg('assets/hamButton.png');
   bButton = createImg('assets/bButton.png');
   uButton = createImg('assets/uButton.png');
   rButton = createImg('assets/rButton.png');
   gerButton = createImg('assets/gerButton.png');
   popButton = createImg('assets/pop.png');
-  
 }
 
 function setup() {
-  // put setup code here
-  // for static
   ham = loadImage('assets/ham.png');
   b = loadImage('assets/b.png');
   u = loadImage('assets/u.png');
@@ -67,7 +62,6 @@ function draw() {
   textAlign(RIGHT);
   text('...or', 1500, 460);
   visualiseBurger()
-  generateText()
 }
 
 function windowResized() {
@@ -78,7 +72,6 @@ function popOff() {
   clear()
   currBurger.pop();
   currText.shift();
-
 }
 
 function pushOn(i) {
@@ -98,20 +91,18 @@ function visualiseBurger() {
       base_y -= 50;
     }
   }
-}
 
-function generateText() {
   var burgerName = '';
   for (var j = 0; currText[j] != undefined; j++) {
     burgerName = burgerName + currText[j];
   }
-
   textSize(30);
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
   text(burgerName, 900, 925);
 }
+
 
 
 /* buttons - when pressed 
