@@ -1,6 +1,5 @@
 var ham, b, u, r, ger;
 var base_x = 700;
-var base_y = 800;
 var burgerStack, burgerText, currText, currBurger;
 var hamButton, bButton, uButton, rButton, gerButton;
 
@@ -21,7 +20,8 @@ function preload() {
   uButton = createImg('assets/uButton.png');
   rButton = createImg('assets/rButton.png');
   gerButton = createImg('assets/gerButton.png');
-  removeButton = createButton('remove');
+  popButton = createImg('assets/pop.png');
+  
 }
 
 function setup() {
@@ -39,13 +39,15 @@ function setup() {
   currBurger = [ger, r, u, b, ham];
 
 
-  hamButton.position(1400, 100).mousePressed(function(){ pushOn(0);});
-  bButton.position(1400, 220).mousePressed(function(){ pushOn(1);});
-  uButton.position(1400, 340).mousePressed(function(){ pushOn(2);});
-  rButton.position(1400, 460).mousePressed(function(){ pushOn(3); });
-  gerButton.position(1400, 580).mousePressed(function(){ pushOn(4); }); 
-  removeButton.position(1400, 700).mousePressed(popOff); 
+  hamButton.position(1300, 175).mousePressed(function(){ pushOn(0);});
+  bButton.position(1420, 175).mousePressed(function(){ pushOn(1);});
+  uButton.position(1300, 280).mousePressed(function(){ pushOn(2);});
+  rButton.position(1420, 280).mousePressed(function(){ pushOn(3); });
+  gerButton.position(1300, 385).mousePressed(function(){ pushOn(4); }); 
+  popButton.position(1310, 650).mousePressed(popOff); 
   canvas = createCanvas(2000, 1000);
+  background(252, 249, 240);
+
   
   // canvas.style('width', '100%');
   // canvas.style('height', $('#canvas').width() + 'px');
@@ -53,6 +55,21 @@ function setup() {
 }
 
 function draw() {
+  // right text :(
+  textSize(70);
+  fill('#E5320B');
+  textFont('Modak');
+  textAlign(CENTER);
+  text('PUSH', 1400, 100);
+  text('POP', 1400, 580);
+  textSize(20);
+  fill('#482D27');
+  textFont('Capriola');
+  textAlign(LEFT);
+  text('an ingredient onto \nyour burger stack...', 1310, 130);
+  text('your last ingredient\n off the stack!', 1310, 610);
+  textAlign(RIGHT);
+  text('...or', 1500, 500);
   visualiseBurger()
 }
 
@@ -72,7 +89,7 @@ function pushOn(i) {
 } 
 
 function visualiseBurger() {
-  base_y = 600;
+  base_y = 650;
   for (var j = 0; currBurger[j] != undefined; j++) {
     image(currBurger[j], base_x, base_y);
     if (j < 5 && (currBurger[j] === ham || 
@@ -86,11 +103,12 @@ function visualiseBurger() {
   for (var j = 0; currText[j] != undefined; j++) {
     burgerName = burgerName + currText[j];
   }
+
   textSize(30);
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
-  text(burgerName, 900, 900);
+  text(burgerName, 900, 925);
 }
 
 function generateText() {

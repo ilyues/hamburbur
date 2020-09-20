@@ -7,9 +7,12 @@
   <title>HAM BUR BUR</title>
   <style>
 
-    body {
+
+    html, body {
       padding: 0;
       margin: 0;
+      height: 100%;
+      overflow: hidden;
       background-color: #FCF9F0;
       text-align: center;
       font-family: 'Capriola', sans-serif;
@@ -20,16 +23,22 @@
       margin: 0 auto;
     }
 
-    .sidenav {
-      /*font-family: 'Fredoka One', cursive;*/
+    .title {
       font-family: 'Modak', cursive;
+      font-size: 150px;
+      color: #E5320B;
+      font-weight: 100;
+      line-height: 1.3ch;
+      padding-bottom: 80px;
+      
+    }
+    .sidenav {
+      font-family: 'Capriola', sans-serif;
+      font-size: 20px;
 
       text-align:left;
-      color: #E5320B;
-      line-height: 1.5ch;
-      font-size: 130px;
       height: 100%; /* Full-height: remove this if you want "auto" height */
-      width: 300px; /* Set the width of the sidebar */
+      width: 500px; /* Set the width of the sidebar */
       position: fixed; /* Fixed Sidebar (stay in place on scroll) */
       z-index: 1; /* Stay on top */
       top: 20; /* Stay at the top */
@@ -38,20 +47,10 @@
       padding-top: 40px;
       padding-left: 50px;
     } 
-/*     div.canvas {
-      position: relative;
-      top: 0px;
-      left: 30px;
-      
 
-    } */
-
-    /* div.container {
-      width: 1000px;
-      height: 1000px;
-      position: relative;
-      border: 3px solid #73AD21;
-    }  */
+    .canvas {
+      position: absolute;
+    }
 
 
   </style>
@@ -62,15 +61,20 @@
 </head>
 
 <body>
-  <div class="sidenav">
-    HAM
-    BUR
-    BUR!
+  <div class="sidenav"><div class="title">HAM
+      BUR
+      BUR!</div>
+      wait so
   </div>
+  <div class="canvas">
+    <script src="sketch.js"></script>
+  </div>
+  
   <!-- <div id="canvas">
       <canvas id="defaultCanvas0" class="p5Canvas" width="1000" height="1000" style="width: 100%; height: 620px;">
     </div> -->
-  <script src="sketch.js"></script>
+    
+
   <div id="p5_loading" class="loadingclass">this could be some sweet graphics loading lots of bits.</div>
 </body>
 
