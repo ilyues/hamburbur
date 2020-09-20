@@ -45,13 +45,9 @@ function setup() {
   rButton.position(1420, 280).mousePressed(function(){ pushOn(3); });
   gerButton.position(1300, 385).mousePressed(function(){ pushOn(4); }); 
   popButton.position(1305, 650).mousePressed(popOff); 
-  canvas = createCanvas(2000, 1000);
+  canvas = createCanvas(windowWidth, windowHeight);
   background(252, 249, 240);
 
-  
-  // canvas.style('width', '100%');
-  // canvas.style('height', $('#canvas').width() + 'px');
-  // canvas.parent('canvas');
 }
 
 function draw() {
@@ -71,6 +67,11 @@ function draw() {
   textAlign(RIGHT);
   text('...or', 1500, 460);
   visualiseBurger()
+  generateText()
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function popOff() {
@@ -97,6 +98,9 @@ function visualiseBurger() {
       base_y -= 50;
     }
   }
+}
+
+function generateText() {
   var burgerName = '';
   for (var j = 0; currText[j] != undefined; j++) {
     burgerName = burgerName + currText[j];
@@ -109,17 +113,7 @@ function visualiseBurger() {
   text(burgerName, 900, 925);
 }
 
-function generateText() {
 
-}
-
-function throwAway() {
-  clear();
-}
-
-function burgerTooLarge() {
-
-}
 /* buttons - when pressed 
 depending on which burger button:
 - add image x by y position 
