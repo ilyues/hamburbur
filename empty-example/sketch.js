@@ -29,6 +29,8 @@ function setup() {
   r = loadImage('assets/r.png');
   ger = loadImage('assets/ger.png');
 
+  ham.resize(window.innerHeight * 0.4, 0);
+
   burgerStack = [ham, b, u, r, ger];
   burgerText = ['ham', 'b', 'u', 'r', 'ger'];
   currText = ['ham', 'b', 'u', 'r', 'ger'];
@@ -67,7 +69,7 @@ function draw() {
   text('an ingredient onto \nyour burger stack...', 0.78 * window.innerWidth, window.innerHeight * 0.13);
   text('the last ingredient\n off the stack!', 0.78 * window.innerWidth, window.innerHeight * 0.61);
   textAlign(RIGHT);
-  text('...or', 0.84 * window.innerWidth, 0.46 * window.innerHeight);
+  text('...or', 0.83 * window.innerWidth, 0.46 * window.innerHeight);
   visualiseBurger()
 }
 
@@ -105,7 +107,7 @@ function visualiseBurger() {
   for (var j = 0; currText[j] != undefined; j++) {
     burgerName = burgerName + currText[j];
   }
-  textSize(30);
+  textSize(0.03 * window.innerHeight);
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
