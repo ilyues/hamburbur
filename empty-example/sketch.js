@@ -1,5 +1,5 @@
 var ham, b, u, r, ger;
-var base_x = 700;
+var base_x = 0.5 * window.innerWidth;
 var burgerStack, burgerText, currText, currBurger;
 var hamButton, bButton, uButton, rButton, gerButton;
 
@@ -22,6 +22,7 @@ function preload() {
 }
 
 function setup() {
+  imageMode(CENTER) 
   ham = loadImage('assets/ham.png');
   b = loadImage('assets/b.png');
   u = loadImage('assets/u.png');
@@ -34,15 +35,19 @@ function setup() {
   currBurger = [ger, r, u, b, ham];
 
 
-  hamButton.position(1300, 175).mousePressed(function(){ pushOn(0);});
-  bButton.position(1420, 175).mousePressed(function(){ pushOn(1);});
-  uButton.position(1300, 280).mousePressed(function(){ pushOn(2);});
-  rButton.position(1420, 280).mousePressed(function(){ pushOn(3); });
-  gerButton.position(1300, 385).mousePressed(function(){ pushOn(4); }); 
-  popButton.position(1305, 650).mousePressed(popOff); 
-  canvas = createCanvas(windowWidth, windowHeight);
+  makeButtons();
+  canvas = createCanvas(windowWidth, 1000);
   background(252, 249, 240);
 
+}
+
+function makeButtons() {
+  hamButton.position(0.72 * window.innerWidth, 175).mousePressed(function(){ pushOn(0);});
+  bButton.position(0.79 * window.innerWidth, 175).mousePressed(function(){ pushOn(1);});
+  uButton.position(0.72 * window.innerWidth, 280).mousePressed(function(){ pushOn(2);});
+  rButton.position(0.79 * window.innerWidth, 280).mousePressed(function(){ pushOn(3); });
+  gerButton.position(0.72 * window.innerWidth, 385).mousePressed(function(){ pushOn(4); }); 
+  popButton.position(0.725 * window.innerWidth, 650).mousePressed(popOff); 
 }
 
 function draw() {
@@ -51,37 +56,39 @@ function draw() {
   fill('#E5320B');
   textFont('Modak');
   textAlign(CENTER);
-  text('PUSH', 1400, 100);
-  text('POP', 1400, 580);
+  text('PUSH', 0.78 * window.innerWidth, 100); 
+  text('POP', 0.78 * window.innerWidth, 580);
   textSize(20);
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
-  text('an ingredient onto \nyour burger stack...', 1400, 130);
-  text('the last ingredient\n off the stack!', 1400, 610);
+  text('an ingredient onto \nyour burger stack...', 0.78 * window.innerWidth, 130);
+  text('the last ingredient\n off the stack!', 0.78 * window.innerWidth, 610);
   textAlign(RIGHT);
-  text('...or', 1500, 460);
+  text('...or', 0.84 * window.innerWidth, 460);
   visualiseBurger()
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  makeButtons();
+  base_x = 0.5 * window.innerWidth;
+  resizeCanvas(windowWidth, 1000);
 }
 
 function popOff() {
-  clear()
+  clear();
   currBurger.pop();
   currText.shift();
 }
 
 function pushOn(i) {
-  clear()
+  clear();
   currBurger.push(burgerStack[i]);
   currText.unshift(burgerText[i]);
 } 
 
 function visualiseBurger() {
-  base_y = 650;
+  base_y = 750;
   for (var j = 0; currBurger[j] != undefined; j++) {
     image(currBurger[j], base_x, base_y);
     if ((currBurger[j] === ham || 
@@ -100,7 +107,7 @@ function visualiseBurger() {
   fill('#482D27');
   textFont('Capriola');
   textAlign(CENTER);
-  text(burgerName, 900, 925);
+  text(burgerName, 0.50 * window.innerWidth, 925);
 }
 
 
